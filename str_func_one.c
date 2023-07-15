@@ -18,3 +18,17 @@ unsigned int stringfunc_two(char cha, const char *string)
 	}
 	return (0);
 }
+
+/**
+ * shellfunct_one - Array of Env Var
+ * @shf: Array of Enviroment Variable
+ * Return: Void funct
+ */
+void shellfunct_one(char **shf)
+{
+	int n;
+
+	for (n = 0; glob_var[n]; n++)
+		shf[n] = stringdup(glob_var[n]);
+	shf[n] = NULL;
+}

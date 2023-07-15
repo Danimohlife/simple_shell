@@ -15,10 +15,21 @@
 #include <errno.h>
 #include <linux/limits.h>
 
-typedef struct  comman
+/* GLOBAL VARIABLE */
+
+extern char **glob_var;
+
+/**
+ * struct comman - Structure for storing commands and associated function
+ * @commands: Pointer to a string containing the command
+ * @f: Pointer to a function that takes a double pointer
+ * Description: This structure is used along with their associated
+ * function for execution.
+ */
+typedef struct comman
 {
-        char *commands;
-        int (*f)(char **line, int er);
+	char *commands;
+	int (*f)(char **line, int er);
 } struc_t;
 
 /* SHELL FUNCT */
@@ -40,5 +51,6 @@ void funct_quit(char **ind, char *filename, char **arg, int lp);
 int stringcompare(char *str1, char *str2);
 char *_stringfunc_one(char *string, const char *to4ken);
 unsigned int stringfunc_two(char cha, const char *string);
+char *stringdup(char *filename);
 
 #endif
