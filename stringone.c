@@ -47,3 +47,32 @@ char *_stringfunc_one(char *string, const char *to4ken)
 	}
 	return (sot);
 }
+
+/**
+ * for_system - syt func
+ * @ld:command to check
+ * Return: 0 / -1
+ */
+int for_system(char **ld)
+{
+	int i = 0;
+
+	struc_t f[] = {
+		{"cd", NULL},
+		{"help", NULL},
+		{"echo", NULL},
+		{"history", NULL},
+		{NULL, NULL}
+	};
+
+	if (*ld == NULL)
+		return (-1);
+
+	while ((f + i)->commands)
+	{
+		if (stringcompare(ld[0], (f + i)->commands) == 0)
+			return (0);
+		i++;
+	}
+	return (-1);
+}
