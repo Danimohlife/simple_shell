@@ -1,4 +1,5 @@
-
+/* Chinenye Normal run fubction */
+void _puts(char *filename);
 int _putchar(char c);
 int _atoi(char *str);
 

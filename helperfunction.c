@@ -25,3 +25,14 @@ int _strlen(char *filename)
 	}
 	return (len);
 }
+/**
+ * _puts - fake puts of c stdio
+ * @filename: file to print
+ * Return: void function
+ */
+void _puts(char *filename)
+{
+	while (*filename != '\0')
+		_putchar(*filename++);
+	_putchar('\n');
+}
