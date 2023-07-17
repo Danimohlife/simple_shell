@@ -36,3 +36,25 @@ void _puts(char *filename)
 		_putchar(*filename++);
 	_putchar('\n');
 }
+/**
+ * _strcat - add more string together
+ * @destfile: file to add other file to
+ * @srcfile: file to add to from
+ * Return: destfile
+ */
+char *_strcat(char *destfile, char *srcfile)
+{
+	char *u = destfile;
+
+	while (*destfile != '\0')
+		destfile++;
+
+	while (*srcfile != '\0')
+	{
+		*destfile = *srcfile;
+		destfile++;
+		srcfile++;
+	}
+	*destfile = '\0';
+	return (u);
+}
