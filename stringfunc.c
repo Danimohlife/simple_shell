@@ -41,3 +41,22 @@ int _atoi(char *str)
 	}
 	return (c);
 }
+
+/**
+ * _strcpy - Source To Destination file
+ * @destfile: Destination file
+ * @srcfile: Source file
+ * Return: destfile
+ */
+char *_strcpy(char *destfile, char *srcfile)
+{
+	int lp = 0;
+
+	while (srcfile[lp])
+	{
+		destfile[lp] = srcfile[lp];
+		lp++;
+	}
+	destfile[lp] = '\0';
+	return (destfile);
+}
