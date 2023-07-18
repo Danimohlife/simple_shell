@@ -14,7 +14,7 @@ char *_strncpy(char *destfile, char *srcfile, int m)
 		*(destfile + m) = *(srcfile + m);
 
 	for (n = 0; n < m; n++)
-		*(destfile + i) = '\0';
+		*(destfile + n) = '\0';
 
 	return (destfile);
 }
