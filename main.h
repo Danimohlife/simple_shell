@@ -23,3 +23,4 @@ int _strlen(char *filename);
 char *_strcpy(char *destfile, char *srcfile);
 char *_strncpy(char *destfile, char *srcfile, int m);
 int _strncmp(const char *file1, const char *file2, size_t num);
+int _isalpha(int c);
