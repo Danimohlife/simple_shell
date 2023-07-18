@@ -13,6 +13,7 @@
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
 int _putchar(char c);
+int intlen(int n);
 int _atoi(char *str);
 char *_strcat(char *destfile, char *srcfile);
 char *_strchr(char *str, char ch);
@@ -22,6 +23,7 @@ char _strcmp(char *s1, char *s2);
 int _strlen(char *filename);
 char *_strcpy(char *destfile, char *srcfile);
 char *_strncpy(char *destfile, char *srcfile, int m);
+int intlen(int n);
 int _strncmp(const char *file1, const char *file2, size_t num);
 int _isalpha(int c);
 void array_rev(char *arr, int len);

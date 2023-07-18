@@ -60,3 +60,19 @@ char *_strcpy(char *destfile, char *srcfile)
 	destfile[lp] = '\0';
 	return (destfile);
 }
+/**
+ * intlen - str len
+ * @n: amnt int
+ * Return: i
+ */
+int intlen(int n)
+{
+	int i = 0;
+
+	while (n != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
