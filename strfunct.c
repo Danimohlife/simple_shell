@@ -13,7 +13,7 @@ int _strncmp(const char *file1, const char *file2, size_t num)
 	if (file1 == NULL)
 		return (-1);
 
-	for (i = 0; i < n && file2[i]; i++)
+	for (i = 0; i < num && file2[i]; i++)
 	{
 		if (file1[i] != file2[i])
 			return (1);

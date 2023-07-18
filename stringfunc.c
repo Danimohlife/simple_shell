@@ -10,11 +10,11 @@ char *_strncpy(char *destfile, char *srcfile, int m)
 {
 	int n;
 
-	for (n = 0; n < m && *(srcfile + m))
+	for (n = 0; n < m && *(srcfile + m); n++)
 		*(destfile + m) = *(srcfile + m);
 
 	for (n = 0; n < m; n++)
-		*(dest + i) = '\0';
+		*(destfile + i) = '\0';
 
 	return (destfile);
 }
@@ -36,7 +36,7 @@ int _atoi(char *str)
 	b = a;
 	while ((str[b] >= '0') && (str[b] <= '9'))
 	{
-		c = (c * 10) + x * ((str[b]) - '0');
+		c = (c * 10) + d * ((str[b]) - '0');
 		b++;
 	}
 	return (c);
