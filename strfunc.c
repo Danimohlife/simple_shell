@@ -43,3 +43,29 @@ char _strcmp(char *s1, char *s2)
 	}
 	return (b);
 }
+/**
+ * _itoa - convert int
+ * @n: num in consideration
+ * Return: ptr
+ */
+char *_itoa(unsigned int n)
+{
+	int size = intlen(n), incr = 0;
+	char *ptrm;
+
+	ptrm = malloc(size + 1);
+	if (!ptrmi)
+		return (NULL);
+
+	*PTRM = '\0';
+	while (n / 10)
+	{
+		ptrm[incr] = (n % 10) + '0';
+		n /= 10;
+		incr++;
+	}
+	ptrm[incr] = (n % 10) + '0';
+	array_rev(ptrm, size);
+	ptrm[incr + 1] = '\0';
+	return (ptrm);
+}
