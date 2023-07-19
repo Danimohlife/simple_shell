@@ -9,6 +9,8 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <linux/limits.h>
+/* DANIMOH SYSTEM FILE */
+void rnthru_fl(char *file, char **env);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
