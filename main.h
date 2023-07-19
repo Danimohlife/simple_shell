@@ -30,3 +30,6 @@ int _strncmp(const char *file1, const char *file2, size_t num);
 int _isalpha(int c);
 void array_rev(char *arr, int len);
 char *_itoa(unsigned int n);
+
+/* Chinenye Dir function */
+void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
