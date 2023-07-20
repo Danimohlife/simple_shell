@@ -11,6 +11,7 @@
 #include <linux/limits.h>
 /* DANIMOH SYSTEM FILE */
 void rnthru_fl(char *file, char **env);
+void sk_out_file(char **cd, char *ln, FILE *ptr);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);

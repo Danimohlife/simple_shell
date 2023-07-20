@@ -27,3 +27,33 @@ void rnthru_fl(char *file, char **env)
 	fclose(fp);
 	exit(0);
 }
+/**
+ * sk_out_file - Exit File
+ * @ln: A File
+ * @cd: Parsed Command
+ * @ptr: File Desc
+ * Return : void function
+ */
+void sk_out_file(char **cd, char *ln, FILE *ptr)
+{
+	int current, n = 0;
+
+	if (cd[1] == NULL)
+	{
+		free(ln);
+		free(cd);
+		fclose(ptr);
+		exit(errno);
+	}
+
+	while (cd[1][n])
+	{
+		if (_isalpha(cd[1][n++]) < 0)
+			perror("illegal number");
+	}
+	current = _atoi(cd[1]);
+	free(ln);
+	free(cd);
+	fclose(ptr);
+	exit(current);
+}
