@@ -33,6 +33,7 @@ extern char **ent;
 void rnthru_fl(char *file, char **env);
 void sk_out_file(char **cd, char *ln, FILE *ptr);
 void handle(int s);
+void  out_sys(char **cm, char *input, char **arrfl, int i);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);

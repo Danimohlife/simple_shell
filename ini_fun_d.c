@@ -67,3 +67,37 @@ void handle(int s)
 	if (s == SIGINT)
 		HANDLER("\n$ ");
 }
+/**
+ * out_sys - quit terminal
+ * @cm: command
+ * @input: us req
+ * @arrfl: Names
+ * @i: count
+ * Return: Void function
+ */
+void  out_sys(char **cm, char *input, char **arrfl, int i)
+{
+	int stu, b = 0;
+
+	if (cm[1] == NULL)
+	{
+		free(input);
+		free(cm);
+		exit(EXIT_SUCCESS);
+	}
+	while (cm[1][b])
+	{
+		if (_isalpha(cm[1][b++]) != 0)
+		{
+			_print_er(arrfl, i, cm);
+			break;
+		}
+		else
+		{
+			stu = _atoi(cm[1]);
+			free(input);
+			free(cm);
+			exit(stu);
+		}
+	}
+}
