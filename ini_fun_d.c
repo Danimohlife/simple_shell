@@ -57,3 +57,13 @@ void sk_out_file(char **cd, char *ln, FILE *ptr)
 	fclose(ptr);
 	exit(current);
 }
+/**
+ * handle - Handle prompt
+ * @s: take handle
+ * Return: Void function
+ */
+void handle(int s)
+{
+	if (s == SIGINT)
+		HANDLER("\n$ ");
+}

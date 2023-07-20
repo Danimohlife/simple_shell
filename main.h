@@ -1,3 +1,6 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -10,6 +13,8 @@
 #include <errno.h>
 #include <linux/limits.h>
 
+#define HANDLER(c) (write(STDOUT_FILENO, c, _strlen(c)))
+
 /**
  * struct sys - struct
  * @comm: pointer
@@ -18,12 +23,14 @@
 typedef struct sys
 {
 	char *comm;
+
 	int (fptr)(char **ln, int n);
 } stru_t;
 
 /* DANIMOH SYSTEM FILE */
 void rnthru_fl(char *file, char **env);
 void sk_out_file(char **cd, char *ln, FILE *ptr);
+void handle(int s);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
@@ -47,3 +54,5 @@ char *_itoa(unsigned int n);
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
 int sys_fl(char **com, int num);
+
+#endif
