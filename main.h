@@ -9,6 +9,18 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <linux/limits.h>
+
+/**
+ * struct sys - struct
+ * @comm: pointer
+ * @fptr: functin pointer
+ */
+typedef struct sys
+{
+	char *comm;
+	int (fptr)(char **ln, int n);
+} stru_t;
+
 /* DANIMOH SYSTEM FILE */
 void rnthru_fl(char *file, char **env);
 void sk_out_file(char **cd, char *ln, FILE *ptr);
@@ -34,3 +46,4 @@ char *_itoa(unsigned int n);
 
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
+int sys_fl(char **com, int num);

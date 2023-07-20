@@ -26,3 +26,30 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg)
 		free(funcall);
 	}
 }
+/**
+ * sys_fl - system function call
+ * @com: command
+ * @num: hw many time
+ * Return: -1 / 0
+ */
+int sys_fl(char **com, int num)
+{
+	int nm;
+
+	stru_t sys[] = {
+		{"cd", dir_recu},
+		{"env", curr_ev},
+		{"help", help_fnc},
+		{"echo", bult_in},
+		{"history", tm_func},
+		{NULL, NULL}
+	}
+	nm = 0;
+	while ((sys + nm)->comm)
+	{
+		if (_strcpm(com[0], (sys + nm)->comm) == 0)
+			return ((sys + nm)->fptr(ln, n));
+		nm++;
+	}
+	return (-1);
+}
