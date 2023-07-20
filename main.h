@@ -27,6 +27,8 @@ typedef struct sys
 	int (fptr)(char **ln, int n);
 } stru_t;
 
+extern char **ent;
+
 /* DANIMOH SYSTEM FILE */
 void rnthru_fl(char *file, char **env);
 void sk_out_file(char **cd, char *ln, FILE *ptr);
@@ -54,5 +56,6 @@ char *_itoa(unsigned int n);
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
 int sys_fl(char **com, int num);
+int run_dr(char **cd, char *filename, int i, char **arrfl);
 
 #endif

@@ -53,3 +53,41 @@ int sys_fl(char **com, int num)
 	}
 	return (-1);
 }
+/**
+ * run_dr - sys files
+ * @cd: intake
+ * @filename: inp
+ * @i: int
+ * @arrfl: array of calls
+ * Return: 1 / 0 / -1
+ */
+int run_dr(char **cd, char *filename, int i, char **arrfl)
+{
+	int  curr;
+	pid_t pid;
+
+	if (*cd == NULL)
+		return (-1);
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error");
+		return (-1);
+	}
+	if (pid == 0)
+	{
+		if (_strncmp(*cd, "./", 2) != 0 && _strncp(*cd, "/", 1) != 0)
+			path_r(cd);
+
+		if (execve(*cd, cd, ent) == -1)
+		{
+			error_r(cd[0], i, arrfl);
+			free(filename);
+			free(cd);
+			exit(EXIT_FAILURE);
+		}
+		return (EXIT_SUCCESS);
+	}
+	wait(&curr);
+	return (0);
+}
