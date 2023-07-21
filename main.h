@@ -35,6 +35,8 @@ void handle(int s);
 void  out_sys(char **cm, char *input, char **arrfl, int i);
 int help_fnc(char **cd, int num);
 int path_r(char **cdln);
+char *_envro(char *dm);
+char *_new_ln(void);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
