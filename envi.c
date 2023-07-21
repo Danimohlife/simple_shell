@@ -52,3 +52,31 @@ int bult_in(char **cd, int str)
 		return (echo_com(cd));
 	return (1);
 }
+/**
+ * path_r - $PATH 4 Excutable
+ * @cdln: input
+ * Return: 1 / 0  On Success.
+ */
+int path_r(char **cdln)
+{
+	char *line, *deri, *part;
+	struct struc huff;
+
+	line = _getenv("PATH");
+	deri = _strtok(line, ":");
+	while (deri != NULL)
+	{
+		part = build(*cmd, deri);
+		if (struc(part, &huff) == 0)
+		{
+			*cdln = _strdup(part);
+			free(part);
+			free(line);
+			return (0);
+		}
+		free(part);
+		deri = _strtok(NULL, ":");
+	}
+	free(line);
+	return (1);
+}

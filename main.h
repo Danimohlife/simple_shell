@@ -34,6 +34,7 @@ void sk_out_file(char **cd, char *ln, FILE *ptr);
 void handle(int s);
 void  out_sys(char **cm, char *input, char **arrfl, int i);
 int help_fnc(char **cd, int num);
+int path_r(char **cdln);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
