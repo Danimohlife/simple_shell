@@ -33,6 +33,7 @@ void rnthru_fl(char *file, char **env);
 void sk_out_file(char **cd, char *ln, FILE *ptr);
 void handle(int s);
 void  out_sys(char **cm, char *input, char **arrfl, int i);
+int help_fnc(char **cd, int num);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
@@ -57,5 +58,6 @@ char *_itoa(unsigned int n);
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
 int sys_fl(char **com, int num);
 int run_dr(char **cd, char *filename, int i, char **arrfl);
+int dir_recu(char **str, int num);
 
 #endif
