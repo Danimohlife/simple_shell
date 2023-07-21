@@ -54,10 +54,10 @@ char *_itoa(unsigned int n)
 	char *ptrm;
 
 	ptrm = malloc(size + 1);
-	if (!ptrmi)
+	if (!ptrm)
 		return (NULL);
 
-	*PTRM = '\0';
+	*ptrm = '\0';
 	while (n / 10)
 	{
 		ptrm[incr] = (n % 10) + '0';

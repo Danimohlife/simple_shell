@@ -43,7 +43,7 @@ int sys_fl(char **com, int num)
 		{"echo", bult_in},
 		{"history", tm_func},
 		{NULL, NULL}
-	}
+	};
 	nm = 0;
 	while ((sys + nm)->comm)
 	{

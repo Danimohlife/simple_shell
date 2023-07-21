@@ -23,8 +23,7 @@
 typedef struct sys
 {
 	char *comm;
-
-	int (fptr)(char **ln, int n);
+	int (*fptr)(char **ln, int n);
 } stru_t;
 
 extern char **ent;

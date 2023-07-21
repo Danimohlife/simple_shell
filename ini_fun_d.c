@@ -19,7 +19,7 @@ void rnthru_fl(char *file, char **env)
 	while ((getline(&str, &ab, fp)) != -1)
 	{
 		bc++;
-		oprate_fl(str, bc, fp, evn);
+		oprate_fl(str, bc, fp, env);
 	}
 
 	if (str)
