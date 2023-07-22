@@ -69,5 +69,7 @@ char *crea_pat(char *ccs, char *access);
 void tags(char *b);
 char *_envro(char *dm);
 void free_all(char **command, char *ln);
+void *arr_func(void *a, int b, unsigned int c);
+void *_calloc(unsigned int size);
 
 #endif

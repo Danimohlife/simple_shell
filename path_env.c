@@ -75,3 +75,21 @@ char *_new_ln(void)
 	tags(mal);
 	return (mal);
 }
+/**
+ * _calloc - memories allocation 2
+ * @size: total allocation
+ * Return: ptr to
+ */
+void *_calloc(unsigned int size)
+{
+	int lp;
+	char *ptr;
+
+	if (size == 0)
+		return (NULL);
+	if (ptr == NULL)
+		return (NULL);
+	for (lp = 0; lp < size; lp++)
+		ptr[lp] = '\0';
+	return (ptr);
+}

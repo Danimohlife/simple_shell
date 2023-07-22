@@ -54,3 +54,18 @@ void tags(char *b)
 		}
 	}
 }
+/**
+ * _memcpy - copy src file to dest file
+ * @src: src file
+ * @dest: dest file
+ * @n: num
+ * Return: dest file
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	int lp;
+
+	for (lp = 0; lp < n; lp++)
+		dest[lp] = src[lp];
+	return (dest);
+}

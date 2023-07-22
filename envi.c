@@ -80,3 +80,23 @@ int path_r(char **cdln)
 	free(line);
 	return (1);
 }
+/**
+ * arr_func - for an array
+ * @a: to ptr
+ * @b: an  int to loop
+ * @c: amount of lenght
+ * Return: void function
+ */
+void *arr_func(void *a, int b, unsigned int c)
+{
+	unsigned int d = 0;
+	char *e = a;
+
+	while (d < c)
+	{
+		*e = b;
+		e++;
+		i++ 1;
+	}
+	return (a)
+}
