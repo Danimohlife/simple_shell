@@ -57,6 +57,7 @@ int _strncmp(const char *file1, const char *file2, size_t num);
 int _isalpha(int c);
 void array_rev(char *arr, int len);
 char *_itoa(unsigned int n);
+char *_new_ln(void);
 
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
@@ -65,5 +66,6 @@ int run_dr(char **cd, char *filename, int i, char **arrfl);
 int dir_recu(char **str, int num);
 char *crea_pat(char *ccs, char *access);
 void tags(char *b);
+char *_envro(char *dm);
 
 #endif
