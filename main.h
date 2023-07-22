@@ -69,6 +69,7 @@ char *crea_pat(char *ccs, char *access);
 void tags(char *b);
 char *_envro(char *dm);
 void free_all(char **command, char *ln);
+int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i);
 void *arr_func(void *a, int b, unsigned int c);
 void *_calloc(unsigned int size);
 
