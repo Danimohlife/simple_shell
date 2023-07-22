@@ -37,6 +37,7 @@ int help_fnc(char **cd, int num);
 int path_r(char **cdln);
 char *_envro(char *dm);
 char *_new_ln(void);
+int tm_fc(char *pt);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
