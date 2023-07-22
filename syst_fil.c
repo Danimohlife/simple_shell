@@ -91,3 +91,36 @@ int run_dr(char **cd, char *filename, int i, char **arrfl)
 	wait(&curr);
 	return (0);
 }
+/**
+ **_realloc -  Re-allocate block of Memory
+ *@ptr: ptr
+ *@old: old size
+ *@nw: New size
+ *Return: Void funct
+ */
+void *_realloc(void *ptr, unsigned int old, unsigned int nw)
+{
+	void *s;
+
+	if (nw == old)
+		return (ptr);
+	if (nw == 0 && ptr)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	s = malloc(nw);
+	if (s == NULL)
+		return (NULL);
+	if (ptr == NULL)
+	{
+		arr_func(s, '\0', nw);
+		free(ptr);
+	}
+	else
+	{
+		_memcpy(s, ptr, old);
+		free(ptr);
+	}
+	return (s);
+}

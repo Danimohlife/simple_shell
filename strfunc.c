@@ -69,3 +69,16 @@ char *_itoa(unsigned int n)
 	ptrm[incr + 1] = '\0';
 	return (ptrm);
 }
+/**
+ * fre_sys - free Pointer
+ * @command: Pointer
+ * @ln: char pointer
+ * Return: Void
+ */
+void fre_sys(char **command, char *ln)
+{
+	free(command);
+	free(ln);
+	command = NULL;
+	ln = NULL;
+}

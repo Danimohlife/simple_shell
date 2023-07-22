@@ -58,6 +58,7 @@ int _isalpha(int c);
 void array_rev(char *arr, int len);
 char *_itoa(unsigned int n);
 char *_new_ln(void);
+void *_realloc(void *ptr, unsigned int old, unsigned int nw)
 
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
@@ -67,5 +68,6 @@ int dir_recu(char **str, int num);
 char *crea_pat(char *ccs, char *access);
 void tags(char *b);
 char *_envro(char *dm);
+void free_all(char **command, char *ln);
 
 #endif
