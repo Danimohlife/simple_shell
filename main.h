@@ -62,5 +62,7 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
 int sys_fl(char **com, int num);
 int run_dr(char **cd, char *filename, int i, char **arrfl);
 int dir_recu(char **str, int num);
+char *crea_pat(char *ccs, char *access);
+void tags(char *b);
 
 #endif
