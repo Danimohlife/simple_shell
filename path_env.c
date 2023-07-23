@@ -24,8 +24,8 @@ char *_envro(char *dm)
 				return (NULL);
 			}
 			j = 0;
-			for (lp2 = a + 1; environ[lp][lps]; lps++, lop++)
-				val[lop] = environ[lp][lps];
+			for (lp2 = a + 1; ent[lp][lps]; lps++, lop++)
+				val[lop] = ent[lp][lps];
 			val[lop] = '\0';
 			return (val);
 		}
@@ -92,4 +92,33 @@ void *_calloc(unsigned int size)
 	for (lp = 0; lp < size; lp++)
 		ptr[lp] = '\0';
 	return (ptr);
+}
+/**
+ * run_c - Parse Line Of Input
+ * @inp:User Input To Parse
+ * Return: arr of char
+ */
+char **run_c(char *inp)
+{
+	char **memptr, *strf;
+	int lp, size = BUFFERSIZE;
+
+	if (inp == NULL)
+		return (NULL);
+
+	memptr = malloc(sizeof(char *) * size);
+	if (memptr)
+	{
+		perror("hsh");
+		return (NULL);
+	}
+
+	strf = _strtok(inp, "\n ");
+	for (lp = 0; strf; lp++)
+	{
+		memptr[lp] = strf;
+		strf = _strtok(NULL, "\n ");
+	}
+	memptr[lp] = NULL;
+	return (memptr);
 }

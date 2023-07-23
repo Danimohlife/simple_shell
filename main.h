@@ -13,8 +13,8 @@
 #include <errno.h>
 #include <linux/limits.h>
 
-#define HANDLER(c) (write(STDOUT_FILENO, c, _strlen(c)))
-
+#define PUTCHAR(c) (write(STDOUT_FILENO, c, _strlen(c)))
+#define BUFFERSIZE 1024
 /**
  * struct sys - struct
  * @comm: pointer
@@ -38,6 +38,8 @@ int path_r(char **cdln);
 char *_envro(char *dm);
 char *_new_ln(void);
 int tm_fc(char *pt);
+int echo_com(char **command);
+char **run_c(char *inp);
 
 /* Chinenye Normal run fubction */
 void _puts(char *filename);
@@ -72,5 +74,5 @@ void free_all(char **command, char *ln);
 int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i);
 void *arr_func(void *a, int b, unsigned int c);
 void *_calloc(unsigned int size);
-
+void _print_er(char **ac, int i, char **cd);
 #endif

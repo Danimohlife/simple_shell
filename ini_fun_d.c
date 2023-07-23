@@ -65,7 +65,7 @@ void sk_out_file(char **cd, char *ln, FILE *ptr)
 void handle(int s)
 {
 	if (s == SIGINT)
-		HANDLER("\n$ ");
+		PUTCHAR("\n$ ");
 }
 /**
  * out_sys - quit terminal

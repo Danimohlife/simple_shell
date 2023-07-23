@@ -28,6 +28,36 @@ int tm_fc(char *pt)
 	return (1);
 }
 /**
+ * echo_com - echo
+ * @command: command
+ * Return: 0 / -1
+ */
+int echo_com(char **command)
+{
+	pid_t pid;
+	int status;
+
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execve("/bin/echo", command, ent) == -1)
+			return (-1);
+
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		return (-1);
+	}
+	else
+	{
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
+	return (1);
+}
+/**
  * tm_func - diplay all that is done.
  * @str: not used
  * @i: not used
@@ -50,13 +80,34 @@ int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i)
 	{
 		lp++;
 		ch = _itoa(lp);
-		PRINTER(ch);
+		PUTCHAR(ch);
 		free(ch);
-		PRINTER(" ");
-		PRINTER(line);
+		PUTCHAR(" ");
+		PUTCHAR(line);
 	}
 	if (line)
 		free(line);
 	fclose(ptr);
 	return (0);
+}
+/**
+ * _print_er - Print Error
+ * @ac:Program Name
+ * @i:Error Count
+ * @cd:Command
+ * Return: Void function
+ */
+void _print_er(char **ac, int i, char **cd)
+{
+	char *c = _itoa(i);
+
+	PUTCHAR(ac[0]);
+	PUTCHAR(": ");
+	PUTCHAR(c);
+	PUTCHAR(": ");
+	PUTCHAR(cd[0]);
+	PUTCHAR(": Illegal number: ");
+	PUTCHAR(cd[1]);
+	PUTCHAR("\n");
+	free(c);
 }
