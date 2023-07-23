@@ -61,6 +61,9 @@ void array_rev(char *arr, int len);
 char *_itoa(unsigned int n);
 char *_new_ln(void);
 void *_realloc(void *ptr, unsigned int old, unsigned int nw)
+void shell_prompt(void);
+void cal_num(unsigned int num);
+void error_r(char input, int num, char **arr);
 
 /* Chinenye Dir function */
 void oprate_fl(char *ab, int ac, FILE *ptr, char **arg);
@@ -75,4 +78,6 @@ int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i);
 void *arr_func(void *a, int b, unsigned int c);
 void *_calloc(unsigned int size);
 void _print_er(char **ac, int i, char **cd);
+void cal_in_num(int num);
+
 #endif

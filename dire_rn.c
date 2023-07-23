@@ -1,5 +1,18 @@
 #include "main.h"
 /**
+ * cal_num - num func cal
+ * @num: an int
+ * Return: 0
+ */
+void cal_num(unsigned int num)
+{
+	if ((num / 10) > 0)
+		cal_num(num / 10);
+
+	_putchar((num % 10) + '0');
+}
+
+/**
  * dir_recu - directory
  * @str: ptr
  * @num: not used
@@ -31,6 +44,16 @@ int dir_recu(char **str, int num)
 	}
 	return (0);
 }
+
+/**
+ * shell_prompt - prompt
+ * Return: void func
+ */
+void shell_prompt(void)
+{
+	PUTCHAR("$ ");
+}
+
 /**
  * help_fnc - fhelp function
  * @cd: comm
