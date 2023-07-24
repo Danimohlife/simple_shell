@@ -64,6 +64,7 @@ int help_fnc(char **cd, int num)
 {
 	char ch;
 	int fa, fb, c = 1;
+	(void) num;
 
 	fb = open(cd[1], O_RDONLY);
 	if (fb < 0)
@@ -75,11 +76,11 @@ int help_fnc(char **cd, int num)
 	while (c > 0)
 	{
 		c = read(fb, &ch, 1);
-		fa = write(STDOUT_FILE, &ch, c);
+		fa = write(STDOUT_FILENO, &ch, c);
 
 		if (fa < 0)
 			return (-1);
 	}
-	_putchar('\n);
+	_putchar('\n');
 	return (0);
 }

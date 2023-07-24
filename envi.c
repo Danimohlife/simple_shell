@@ -12,8 +12,8 @@ int curr_en(__attribute__((unused)) char **cd, __attribute__((unused)) int num)
 
 	for (lp = 0; environ[lp] != NULL; lp++)
 	{
-		ln = _strlen(ent[lp]);
-		write(1, ent[lp], ln);
+		ln = _strlen(environ[lp]);
+		write(1, environ[lp], ln);
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	return (0);
@@ -60,14 +60,14 @@ int bult_in(char **cd, int str)
 int path_r(char **cdln)
 {
 	char *line, *deri, *part;
-	struct struc huff;
+	struct stat buf;
 
-	line = _getenv("PATH");
+	line = _envro("PATH");
 	deri = _strtok(line, ":");
 	while (deri != NULL)
 	{
-		part = build(*cmd, deri);
-		if (struc(part, &huff) == 0)
+		part = crea_pat(*cdln, deri);
+		if (stat(part, &buf) == 0)
 		{
 			*cdln = _strdup(part);
 			free(part);
@@ -96,7 +96,7 @@ void *arr_func(void *a, int b, unsigned int c)
 	{
 		*e = b;
 		e++;
-		i++ 1;
+		d++;
 	}
-	return (a)
+	return (a);
 }

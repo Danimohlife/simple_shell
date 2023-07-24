@@ -63,7 +63,7 @@ void tags(char *b)
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	int lp;
+	unsigned int lp;
 
 	for (lp = 0; lp < n; lp++)
 		dest[lp] = src[lp];

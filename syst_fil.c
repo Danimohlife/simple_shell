@@ -26,6 +26,7 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg)
 		free(funcall);
 	}
 }
+
 /**
  * sys_fl - system function call
  * @com: command
@@ -36,23 +37,26 @@ int sys_fl(char **com, int num)
 {
 	int nm;
 
-	stru_t sys[] = {
+	stru_t syst[] = {
 		{"cd", dir_recu},
-		{"env", curr_ev},
+		{"env", curr_en},
 		{"help", help_fnc},
 		{"echo", bult_in},
 		{"history", tm_func},
 		{NULL, NULL}
 	};
 	nm = 0;
-	while ((sys + nm)->comm)
+	while ((syst + nm)->comm)
 	{
-		if (_strcpm(com[0], (sys + nm)->comm) == 0)
-			return ((sys + nm)->fptr(ln, n));
+		if (_strcmp(com[0], (syst + nm)->comm) == 0)
+		{
+			return ((syst + nm)->fptr(com, num));
+		}
 		nm++;
 	}
 	return (-1);
 }
+
 /**
  * run_dr - sys files
  * @cd: intake
@@ -76,10 +80,10 @@ int run_dr(char **cd, char *filename, int i, char **arrfl)
 	}
 	if (pid == 0)
 	{
-		if (_strncmp(*cd, "./", 2) != 0 && _strncp(*cd, "/", 1) != 0)
+		if (_strncmp(*cd, "./", 2) != 0 && _strncmp(*cd, "/", 1) != 0)
 			path_r(cd);
 
-		if (execve(*cd, cd, ent) == -1)
+		if (execve(*cd, cd, environ) == -1)
 		{
 			error_r(cd[0], i, arrfl);
 			free(filename);
@@ -91,36 +95,38 @@ int run_dr(char **cd, char *filename, int i, char **arrfl)
 	wait(&curr);
 	return (0);
 }
-/**
- **_realloc -  Re-allocate block of Memory
- *@ptr: ptr
- *@old: old size
- *@nw: New size
- *Return: Void funct
- */
-void *_realloc(void *ptr, unsigned int old, unsigned int nw)
-{
-	void *s;
 
-	if (nw == old)
+/**
+ * _realloc -  Re-allocate block of Memory
+ * @ptr: ptr
+ * @old_size: old size
+ * @new_size: New size
+ * Return: Void funct
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	void *result;
+
+	if (new_size == old_size)
 		return (ptr);
-	if (nw == 0 && ptr)
+	if (new_size == 0 && ptr)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	s = malloc(nw);
-	if (s == NULL)
+	result = malloc(new_size);
+	if (result == NULL)
 		return (NULL);
 	if (ptr == NULL)
 	{
-		arr_func(s, '\0', nw);
+		arr_func(result, '\0', new_size);
 		free(ptr);
 	}
 	else
 	{
-		_memcpy(s, ptr, old);
+		_memcpy(result, ptr, old_size);
 		free(ptr);
 	}
-	return (s);
+	return (result);
+
 }

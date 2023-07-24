@@ -23,9 +23,9 @@ char *_envro(char *dm)
 				perror("unable to alloc");
 				return (NULL);
 			}
-			j = 0;
-			for (lp2 = a + 1; ent[lp][lps]; lps++, lop++)
-				val[lop] = ent[lp][lps];
+			lop = 0;
+			for (lps = a + 1; environ[lp][lps]; lps++, lop++)
+				val[lop] = environ[lp][lps];
 			val[lop] = '\0';
 			return (val);
 		}
@@ -82,11 +82,14 @@ char *_new_ln(void)
  */
 void *_calloc(unsigned int size)
 {
-	int lp;
+	unsigned int lp;
 	char *ptr;
 
 	if (size == 0)
 		return (NULL);
+
+	ptr = malloc(size);
+
 	if (ptr == NULL)
 		return (NULL);
 	for (lp = 0; lp < size; lp++)
