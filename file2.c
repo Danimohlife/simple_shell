@@ -7,11 +7,11 @@
  */
 unsigned int delim(char c, const char *str)
 {
-	int i;
+	unsigned int l;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[l] != '\0'; l++)
 	{
-		if (c == str[i])
+		if (c == str[l])
 			return (1);
 	}
 	return (0);
@@ -28,10 +28,9 @@ void error_r(char *input, int num, char **arr)
 {
 	char *toa;
 
-	toa = _itoa(num);
-
 	PUTCHAR(arr[0]);
 	PUTCHAR(": ");
+	toa = _itoa(num);
 	PUTCHAR(toa);
 	free(toa);
 	PUTCHAR(": ");
@@ -45,15 +44,18 @@ void error_r(char *input, int num, char **arr)
  */
 void cal_in_num(int num)
 {
+	unsigned int i;
+
+	i = num;
 	if (num < 0)
 	{
 		_putchar('-');
-		num = -num;
+		i = -i;
 	}
-	if ((num / 10) > 0)
+	if ((i / 10) > 0)
 		cal_num(num / 10);
 
-	_putchar((num % 10) + '0');
+	_putchar(i % 10 + '0');
 }
 /**
  * _strtok - strtrok
@@ -64,7 +66,7 @@ void cal_in_num(int num)
 char *_strtok(char *str, const char *fil)
 {
 	static char *string, *gh;
-	int lp;
+	unsigned int lp;
 
 	if (str != NULL)
 		gh = str;

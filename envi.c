@@ -27,9 +27,7 @@ int curr_en(__attribute__((unused)) char **cd, __attribute__((unused)) int num)
 int bult_in(char **cd, int str)
 {
 	char *path;
-	unsigned int pid;
-
-	pid = getppid();
+	unsigned int pid = getppid();
 
 	if (_strncmp(cd[1], "$?", 2) == 0)
 	{

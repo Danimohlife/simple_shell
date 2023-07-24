@@ -6,10 +6,12 @@
  */
 void cal_num(unsigned int num)
 {
-	if ((num / 10) > 0)
-		cal_num(num / 10);
+	unsigned int n = num;
 
-	_putchar((num % 10) + '0');
+	if ((n / 10) > 0)
+		cal_num(n / 10);
+
+	_putchar((n % 10) + '0');
 }
 
 /**
@@ -18,11 +20,11 @@ void cal_num(unsigned int num)
  * @num: not used
  * Return: 0
  */
-int dir_recu(char **str, int num)
+int dir_recu(char **str, __attribute__((unused))int num)
 {
 	char rt[PATH_MAX];
 	int i = -1;
-	(void)num;
+
 
 	if (str[1] == NULL)
 		i = chdir(getenv("HOME"));
@@ -60,11 +62,10 @@ void shell_prompt(void)
  * @num: cuurn
  * Return: 0 / -1
  */
-int help_fnc(char **cd, int num)
+int help_fnc(char **cd, __attrbute__((unused))int num)
 {
 	char ch;
 	int fa, fb, c = 1;
-	(void) num;
 
 	fb = open(cd[1], O_RDONLY);
 	if (fb < 0)
