@@ -1,64 +1,68 @@
 #include "main.h"
 /**
  * _putchar - alx version of stdio lib func putchar
- * @b: one char arg to print at a time
+ * @c: one char arg to print at a time
  * Return: c
  */
-int _putchar(char b)
+int _putchar(char c)
 {
-	return (write(1, &b, 1));
+	return (write(1, &c, 1));
 }
 
 /**
  * _strlen - len of string
- * @filename: file
+ * @s: file
  * Return: len
  */
-int _strlen(char *filename)
-{
-	int len = 0;
-
-	while (filename[len] != '\0')
-	{
-		filename++;
-		len++;
-	}
-return (len);
-}
-/**
- * _puts - fake puts of c stdio
- * @filename: file to print
- * Return: void function
- */
-void _puts(char *filename)
+int _strlen(char *s)
 {
 	int i;
 
-	for (i = 0; filename[i] != '\0'; i++)
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			continue;
+		}
+return (i);
+}
+
+/**
+ * _puts - fake puts of c stdio
+ * @str: file to print
+ * Return: void function
+ */
+void _puts(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(filename[i]);
+		_putchar(str[i]);
 	}
 _putchar('\n');
+return;
 }
+
 /**
  * _strcat - add more string together
- * @destfile: file to add other file to
- * @srcfile: file to add to from
+ * @dest: file to add other file to
+ * @src: file to add to from
  * Return: destfile
  */
-char *_strcat(char *destfile, char *srcfile)
+char *_strcat(char *dest, char *src)
 {
-	char *u = destfile;
+	char *s = dest;
 
-	while (*destfile != '\0')
-		destfile++;
-
-	while (*srcfile != '\0')
+	while (*dest != '\0')
 	{
-		*destfile = *srcfile;
-		destfile++;
-		srcfile++;
+		dest++;
 	}
-	*destfile = '\0';
-	return (u);
+
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (s);
 }

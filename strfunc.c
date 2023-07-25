@@ -23,28 +23,25 @@ return (str);
  */
 int _strcmp(char *s1, char *s2)
 {
-	int a, b = 0;
-	int count = _strlen(s1);
-	int lean = _strlen(s2);
+int cmp = 0, i, len1, len2;
+len1 = _strlen(s1);
+len2 = _strlen(s2);
 
 	if (s1 == NULL || s2 == NULL)
 		return (1);
-	if (count != lean)
+	if (len1 != len2)
 		return (1);
-
-	for (a = 0; s1[a]; a++)
+	for (i = 0; s1[i]; i++)
 	{
-		if (s1[a] != s2[a])
+		if (s1[i] != s2[i])
 		{
-			b = s1[a] - s2[a];
+			cmp = s1[i] - s2[i];
 			break;
 		}
 		else
-		{
 			continue;
-		}
 	}
-	return (b);
+	return (cmp);
 }
 /**
  * _itoa - convert int
@@ -53,29 +50,24 @@ int _strcmp(char *s1, char *s2)
  */
 char *_itoa(unsigned int n)
 {
-	int size;
-	int incr = 0;
-	char *ptrm;
+	int len = 0, i = 0;
+	char *s;
 
-	size = intlen(n);
-	ptrm = malloc(size + 1);
-
-	if (!ptrm)
-	{
+	len = intlen(n);
+	s = malloc(len + 1);
+	if (!s)
 		return (NULL);
-	}
-	*ptrm = '\0';
-
+	*s = '\0';
 	while (n / 10)
 	{
-		ptrm[incr] = (n % 10) + '0';
+		s[i] = (n % 10) + '0';
 		n /= 10;
-		incr++;
+		i++;
 	}
-	ptrm[incr] = (n % 10) + '0';
-	array_rev(ptrm, size);
-	ptrm[incr + 1] = '\0';
-	return (ptrm);
+	s[i] = (n % 10) + '0';
+	array_rev(s, len);
+	s[i + 1] = '\0';
+	return (s);
 }
 /**
  * fre_sys - free Pointer
