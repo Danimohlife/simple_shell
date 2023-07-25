@@ -25,7 +25,9 @@ int main(__attribute__((unused)) int argc, char **argv)
 		tm_fc(getfile);
 		func = run_c(getfile);
 		if (_strcmp(func[0], "exit") == 0)
+		{
 			out_sys(func, getfile, argv, lp);
+		}
 		else if (rn_sys_fl(func) == 0)
 		{
 			st = sys_fl(func, st);
@@ -48,8 +50,6 @@ int main(__attribute__((unused)) int argc, char **argv)
  */
 int rn_sys_fl(char **shel)
 {
-	int lp = 0;
-
 	stru_t arr[] = {
 		{"cd", NULL},
 		{"help", NULL},
@@ -57,7 +57,7 @@ int rn_sys_fl(char **shel)
 		{"history", NULL},
 		{NULL, NULL}
 	};
-
+	int lp = 0;
 	if (*shel == NULL)
 	{
 		return (-1);

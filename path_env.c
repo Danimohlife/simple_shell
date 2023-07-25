@@ -25,7 +25,9 @@ char *_envro(char *dm)
 			}
 			lop = 0;
 			for (lps = a + 1; environ[lp][lps]; lps++, lop++)
+			{
 				val[lop] = environ[lp][lps];
+			}
 			val[lop] = '\0';
 			return (val);
 		}
@@ -86,14 +88,20 @@ void *_calloc(unsigned int size)
 	char *ptr;
 
 	if (size == 0)
+	{
 		return (NULL);
+	}
 
 	ptr = malloc(size);
 
 	if (ptr == NULL)
+	{
 		return (NULL);
+	}
 	for (lp = 0; lp < size; lp++)
+	{
 		ptr[lp] = '\0';
+	}
 	return (ptr);
 }
 /**
@@ -103,7 +111,8 @@ void *_calloc(unsigned int size)
  */
 char **run_c(char *inp)
 {
-	char **memptr, *strf;
+	char **memptr;
+	char *strf;
 	int lp, size = BUFFERSIZE;
 
 	if (inp == NULL)

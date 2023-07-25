@@ -14,7 +14,9 @@ char *crea_pat(char *ccs, char *access)
 	command = malloc(sizeof(char) * ln);
 
 	if (command == NULL)
+	{
 		return (NULL);
+	}
 
 	memset(command, 0, ln);
 
@@ -34,7 +36,9 @@ void env_f(char **en)
 	int num;
 
 	for (num = 0; en[num]; num++)
+	{
 		free(en[num]);
+	}
 }
 /**
  * tags - move env
@@ -66,6 +70,8 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	unsigned int lp;
 
 	for (lp = 0; lp < n; lp++)
+	{
 		dest[lp] = src[lp];
+	}
 	return (dest);
 }
