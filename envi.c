@@ -7,13 +7,13 @@
  */
 int curr_en(__attribute__((unused)) char **cd, __attribute__((unused)) int num)
 {
-	size_t lp;
-	int ln;
+size_t lp;
+	int n;
 
 	for (lp = 0; environ[lp] != NULL; lp++)
 	{
-		ln = _strlen(environ[lp]);
-		write(1, environ[lp], ln);
+		n = _strlen(environ[lp]);
+		write(1, environ[i], n);
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	return (0);
@@ -21,33 +21,36 @@ int curr_en(__attribute__((unused)) char **cd, __attribute__((unused)) int num)
 /**
  * bult_in - echo
  * @str: command
- * @cd: Pa
+ * @num: Pa
  * Return: 0
  */
-int bult_in(char **cd, int str)
+int bult_in(char **str, int num)
 {
-	char *path;
-	unsigned int pid = getppid();
+	char *p;
+	unsigned int  pid = getppid();
 
-	if (_strncmp(cd[1], "$?", 2) == 0)
+	if (_strncmp(str[1], "$?", 2) == 0)
 	{
-		cal_in_num(str);
+		cal_in_num(num);
 		PUTCHAR("\n");
 	}
-	else if (_strncmp(cd[1], "$$", 2) == 0)
+	else if (_strncmp(str[1], "$$", 2) == 0)
 	{
 		cal_num(pid);
 		PUTCHAR("\n");
+
 	}
-	else if (_strncmp(cd[1], "$PATH", 5) == 0)
+	else if (_strncmp(str[1], "$PATH", 5) == 0)
 	{
-		path = _envro("PATH");
+		p = _getenv("PATH");
 		PUTCHAR(path);
 		PUTCHAR("\n");
-		free(path);
+		free(p);
+
 	}
 	else
-		return (echo_com(cd));
+		return (echo_com(str));
+
 	return (1);
 }
 /**
@@ -57,25 +60,26 @@ int bult_in(char **cd, int str)
  */
 int path_r(char **cdln)
 {
-	char *line, *deri, *part;
+	char *p, *value, *cp;
 	struct stat buf;
 
-	line = _envro("PATH");
-	deri = _strtok(line, ":");
-	while (deri != NULL)
+	p = _envro("PATH");
+	value = _strtok(p, ":");
+	while (value != NULL)
 	{
-		part = crea_pat(*cdln, deri);
-		if (stat(part, &buf) == 0)
+		cp = crea_pat(*cdln, value);
+		if (stat(cp, &buf) == 0)
 		{
-			*cdln = _strdup(part);
-			free(part);
-			free(line);
+			*cdln = _strdup(cp);
+			free(cp);
+			free(p);
 			return (0);
 		}
-		free(part);
-		deri = _strtok(NULL, ":");
+		free(cp);
+		value = _strtok(NULL, ":");
 	}
-	free(line);
+	free(p);
+
 	return (1);
 }
 /**
@@ -87,14 +91,14 @@ int path_r(char **cdln)
  */
 void *arr_func(void *a, int b, unsigned int c)
 {
-	unsigned int d = 0;
-	char *e = a;
+	char *ch = a;
+	unsigned int lp = 0;
 
-	while (d < c)
+	while (lp < c)
 	{
-		*e = b;
-		e++;
-		d++;
+		*ch = b;
+		ch++;
+		lp++;
 	}
 	return (a);
 }

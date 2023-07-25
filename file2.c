@@ -7,16 +7,15 @@
  */
 unsigned int delim(char c, const char *str)
 {
-	unsigned int l;
+	unsigned int lp;
 
-	for (l = 0; str[l] != '\0'; l++)
+	for (lp = 0; str[lp] != '\0'; lp++)
 	{
-		if (c == str[l])
+		if (c == str[lp])
 			return (1);
 	}
 	return (0);
 }
-
 /**
  * error_r - work out error
  * @input: command inp
@@ -26,13 +25,13 @@ unsigned int delim(char c, const char *str)
  */
 void error_r(char *input, int num, char **arr)
 {
-	char *toa;
+	char *ch;
 
 	PUTCHAR(arr[0]);
 	PUTCHAR(": ");
-	toa = _itoa(num);
-	PUTCHAR(toa);
-	free(toa);
+	ch = _itoa(num);
+	PUTCHAR(ch);
+	free(ch);
 	PUTCHAR(": ");
 	PUTCHAR(input);
 	PUTCHAR(": not found\n");
@@ -44,16 +43,15 @@ void error_r(char *input, int num, char **arr)
  */
 void cal_in_num(int num)
 {
-	unsigned int i;
+	unsigned int i = num;
 
-	i = num;
 	if (num < 0)
 	{
 		_putchar('-');
 		i = -i;
 	}
 	if ((i / 10) > 0)
-		cal_num(num / 10);
+		cal_num(i / 10);
 
 	_putchar(i % 10 + '0');
 }
@@ -65,39 +63,40 @@ void cal_in_num(int num)
  */
 char *_strtok(char *str, const char *fil)
 {
-	static char *string, *gh;
+	static char *s;
+	static char *c;
 	unsigned int lp;
 
 	if (str != NULL)
-		gh = str;
-	string = gh;
-	if (string == NULL)
+		nt = str;
+	s = c;
+	if (s == NULL)
 		return (NULL);
-	for (lp = 0; string[lp] != '\0'; lp++)
+	for (lp = 0; s[lp] != '\0'; lp++)
 	{
-		if (delim(string[lp], fil) == 0)
+		if (delim(s[lp], fil) == 0)
 			break;
 	}
-	if (gh[lp] == '\0' || gh[lp] == '#')
+	if (c[lp] == '\0' || c[lp] == '#')
 	{
-		gh = NULL;
+		c = NULL;
 		return (NULL);
 	}
-	string = gh + lp;
-	gh = string;
-	for (lp = 0; gh[lp] != '\0'; lp++)
+	s = c + lp;
+	c = s;
+	for (lp = 0; c[lp] != '\0'; lp++)
 	{
-		if (delim(gh[lp], fil) == 1)
+		if (delim(c[lp], fil) == 1)
 			break;
 	}
-	if (gh[lp] == '\0')
-		gh = NULL;
+	if (c[lp] == '\0')
+		nt = NULL;
 	else
 	{
-		gh[lp] = '\0';
-		gh = gh + lp + 1;
-		if (*gh == '\0')
-			gh = NULL;
+		c[lp] = '\0';
+		c = c + lp + 1;
+		if (*c == '\0')
+			c = NULL;
 	}
-	return (string);
+	return (s);
 }
