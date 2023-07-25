@@ -14,7 +14,9 @@ void rnthru_fl(char *file, char **env)
 
 	fp = fopen(file, "r");
 	if (fp == NULL)
+	{
 		exit(EXIT_FAILURE);
+	}
 
 	while ((getline(&str, &ab, fp)) != -1)
 	{
@@ -49,7 +51,9 @@ void sk_out_file(char **cd, char *ln, FILE *ptr)
 	while (cd[1][n])
 	{
 		if (_isalpha(cd[1][n++]) < 0)
+		{
 			perror("illegal number");
+		}
 	}
 	current = _atoi(cd[1]);
 	free(ln);
@@ -65,7 +69,9 @@ void sk_out_file(char **cd, char *ln, FILE *ptr)
 void handle(int s)
 {
 	if (s == SIGINT)
+	{
 		PUTCHAR("\n$ ");
+	}
 }
 /**
  * out_sys - quit terminal

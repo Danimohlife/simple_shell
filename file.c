@@ -4,24 +4,24 @@
  * @pt: input
  * Return: -1 Fail 0 Succes
  */
-int tm_fc(char *pt)
+int tm_fc(char *pts)
 {
-	char *name = ".shell_history";
+	char *str = ".shell_history";
 	ssize_t pf, pwrit;
 	int lp = 0;
 
-	if (!name)
+	if (!str)
 		return (-1);
 
-	pf = open(name, O_CREAT | O_RDWR | O_APPEND, 00600);
+	pf = open(str, O_CREAT | O_RDWR | O_APPEND, 00600);
 
 	if (pf < 0)
 		return (-1);
-	if (pt)
+	if (pts)
 	{
-		while (pt[lp])
+		while (pts[lp])
 			lp++;
-		pwrit = write(pf, pt, lp);
+		pwrit = write(pf, pts, lp);
 		if (pwrit < 0)
 			return (-1);
 	}
@@ -40,8 +40,8 @@ int echo_com(char **command)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve("/bin/echo", command, environ) == -1)
-			return (-1);
+	if (execve("/bin/echo", command, environ) == -1)
+		return (-1);
 
 		exit(EXIT_FAILURE);
 	}
@@ -74,7 +74,9 @@ int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i)
 
 	ptr = fopen(file, "r");
 	if (ptr == NULL)
+	{
 		return (-1);
+	}
 
 	while ((getline(&line, &pln, ptr)) != -1)
 	{

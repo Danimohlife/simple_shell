@@ -18,12 +18,12 @@ int _strlen(char *filename)
 {
 	int len = 0;
 
-	while (*filename != '\0')
+	while (filename[len] != '\0')
 	{
 		filename++;
 		len++;
 	}
-	return (len);
+return (len);
 }
 /**
  * _puts - fake puts of c stdio
@@ -32,9 +32,11 @@ int _strlen(char *filename)
  */
 void _puts(char *filename)
 {
-	while (*filename != '\0')
-		_putchar(*filename++);
-	_putchar('\n');
+	for (i = 0; *filename[i] != '\0'; i++)
+	{
+		_putchar(filename[i]);
+	}
+_putchar('\n');
 }
 /**
  * _strcat - add more string together
