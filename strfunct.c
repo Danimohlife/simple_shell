@@ -11,12 +11,16 @@ int _strncmp(const char *file1, const char *file2, size_t num)
 	size_t i;
 
 	if (file1 == NULL)
+	{
 		return (-1);
+	}
 
 	for (i = 0; i < num && file2[i]; i++)
 	{
 		if (file1[i] != file2[i])
+		{
 			return (1);
+		}
 	}
 	return (0);
 }
@@ -28,17 +32,21 @@ int _strncmp(const char *file1, const char *file2, size_t num)
  */
 char *_strdup(char *str)
 {
-	size_t lp, strlen;
+	size_t lp, strl;
 	char *ptrm;
 
-	strlen = _strlen(str);
-	ptrm = malloc(sizeof(char) * (strlen + 1));
+	strl = _strlen(str);
+	ptrm = malloc(sizeof(char) * (strl + 1));
 
 	if (!ptrm)
+	{
 		return (NULL);
+	}
 
-	for (lp = 0; lp <= strlen; lp++)
+	for (lp = 0; lp <= strl; lp++)
+	{
 		ptrm[lp] = str[lp];
+	}
 
 	return (ptrm);
 }
@@ -50,9 +58,13 @@ char *_strdup(char *str)
 int _isalpha(int c)
 {
 	if (((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
+	{
 		return (1);
+	}
 	else
+	{
 		return (0);
+	}
 }
 /**
  *  array_rev - Reverse Array

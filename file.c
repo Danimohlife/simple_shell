@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * tm_fc - input tm
- * @pt: input
+ * @pts: input
  * Return: -1 Fail 0 Succes
  */
 int tm_fc(char *pts)

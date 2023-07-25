@@ -10,10 +10,11 @@ char *_strchr(char *str, char ch)
 {
 	do {
 		if (*str == ch)
+		{
 			break;
+		}
 	} while (*str++);
-
-	return (str);
+return (str);
 }
 /**
  * _strcmp - strings compared
@@ -24,8 +25,12 @@ char *_strchr(char *str, char ch)
 char _strcmp(char *s1, char *s2)
 {
 	int a, b = 0;
+	int count = _strlen(s1);
+	int lean = _strlen(s2);
 
-	if ((_strlen(s1) != _strlen(s2)) || (s1 == NULL) || (s2 == NULL))
+	if (s1 == NULL || s2 == NULL)
+		return (1);
+	if (count != lean)
 		return (1);
 
 	for (a = 0; s1[a]; a++)
@@ -39,9 +44,8 @@ char _strcmp(char *s1, char *s2)
 		{
 			continue;
 		}
-
+		return (b);
 	}
-	return (b);
 }
 /**
  * _itoa - convert int
@@ -50,14 +54,19 @@ char _strcmp(char *s1, char *s2)
  */
 char *_itoa(unsigned int n)
 {
-	int size = intlen(n), incr = 0;
+	int size;
+	int incr = 0;
 	char *ptrm;
 
+	size = intlen(n);
 	ptrm = malloc(size + 1);
-	if (!ptrm)
-		return (NULL);
 
+	if (!ptrm)
+	{
+		return (NULL);
+	}
 	*ptrm = '\0';
+
 	while (n / 10)
 	{
 		ptrm[incr] = (n % 10) + '0';

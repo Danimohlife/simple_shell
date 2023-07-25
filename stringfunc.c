@@ -8,13 +8,19 @@
  */
 char *_strncpy(char *destfile, char *srcfile, int m)
 {
-	int n;
+	int lp = 0;
 
-	for (n = 0; n < m && *(srcfile + m); n++)
-		*(destfile + m) = *(srcfile + m);
+	while (lp < m && *(scrfile + 1))
+	{
+		*(destfile + lp) = *(srcfile + lp);
+		lp++;
+	}
 
-	for (n = 0; n < m; n++)
-		*(destfile + n) = '\0';
+	while (lp < m)
+	{
+		*(destfile + lp) = '\0';
+		lp++
+	}
 
 	return (destfile);
 }
@@ -25,12 +31,14 @@ char *_strncpy(char *destfile, char *srcfile, int m)
  */
 int _atoi(char *str)
 {
-	int a = 0, b, c = 0, d = 1;
+	int b, a = c = 0, d = 1;
 
 	while ((str[a] < '0' || str[a] > '9') && (str[a] != '\0'))
 	{
 		if (str[a] == '-')
+		{
 			d *= -1;
+		}
 		a++;
 	}
 	b = a;
@@ -50,8 +58,9 @@ int _atoi(char *str)
  */
 char *_strcpy(char *destfile, char *srcfile)
 {
-	int lp = 0;
+	int lp;
 
+	lp = 0;
 	while (srcfile[lp])
 	{
 		destfile[lp] = srcfile[lp];
