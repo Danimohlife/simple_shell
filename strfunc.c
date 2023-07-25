@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _strchr - char
  * @str: string
@@ -22,7 +21,7 @@ return (str);
  * @s2: string to compare to
  * Return: de copamr
  */
-char _strcmp(char *s1, char *s2)
+int _strcmp(char *s1, char *s2)
 {
 	int a, b = 0;
 	int count = _strlen(s1);
@@ -44,8 +43,8 @@ char _strcmp(char *s1, char *s2)
 		{
 			continue;
 		}
-		return (b);
 	}
+	return (b);
 }
 /**
  * _itoa - convert int

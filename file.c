@@ -40,8 +40,10 @@ int echo_com(char **command)
 	pid = fork();
 	if (pid == 0)
 	{
-	if (execve("/bin/echo", command, environ) == -1)
-		return (-1);
+		if (execve("/bin/echo", command, environ) == -1)
+		{
+			return (-1);
+		}
 
 		exit(EXIT_FAILURE);
 	}

@@ -57,7 +57,9 @@ int rn_sys_fl(char **shel)
 		{"history", NULL},
 		{NULL, NULL}
 	};
+
 	int lp = 0;
+
 	if (*shel == NULL)
 	{
 		return (-1);

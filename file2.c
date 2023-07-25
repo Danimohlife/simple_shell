@@ -9,7 +9,7 @@ unsigned int delim(char c, const char *str)
 {
 	unsigned int l;
 
-	for (i = 0; str[l] != '\0'; l++)
+	for (l = 0; str[l] != '\0'; l++)
 	{
 		if (c == str[l])
 			return (1);

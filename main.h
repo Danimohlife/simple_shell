@@ -50,7 +50,7 @@ int intlen(int n);
 int _atoi(char *str);
 char *_strcat(char *destfile, char *srcfile);
 char *_strchr(char *str, char ch);
-char _strcmp(char *s1, char *s2);
+int _strcmp(char *s1, char *s2);
 unsigned int delim(char c, const char *str);
 char *_strtok(char *str, const char *fil);
 char *_memcpy(char *dest, char *src, unsigned int n);

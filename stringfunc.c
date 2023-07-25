@@ -10,7 +10,7 @@ char *_strncpy(char *destfile, char *srcfile, int m)
 {
 	int lp = 0;
 
-	while (lp < m && *(scrfile + 1))
+	while (lp < m && *(srcfile + 1))
 	{
 		*(destfile + lp) = *(srcfile + lp);
 		lp++;
@@ -19,7 +19,7 @@ char *_strncpy(char *destfile, char *srcfile, int m)
 	while (lp < m)
 	{
 		*(destfile + lp) = '\0';
-		lp++
+		lp++;
 	}
 
 	return (destfile);
@@ -31,7 +31,9 @@ char *_strncpy(char *destfile, char *srcfile, int m)
  */
 int _atoi(char *str)
 {
-	int b, a = c = 0, d = 1;
+	int b, a, c, d = 1;
+
+	a = c = 0;
 
 	while ((str[a] < '0' || str[a] > '9') && (str[a] != '\0'))
 	{

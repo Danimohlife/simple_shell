@@ -62,7 +62,7 @@ void shell_prompt(void)
  * @num: cuurn
  * Return: 0 / -1
  */
-int help_fnc(char **cd, __attrbute__((unused))int num)
+int help_fnc(char **cd, __attribute__((unused))int num)
 {
 	char ch;
 	int fa, fb, c = 1;

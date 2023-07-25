@@ -32,7 +32,9 @@ return (len);
  */
 void _puts(char *filename)
 {
-	for (i = 0; *filename[i] != '\0'; i++)
+	int i;
+
+	for (i = 0; filename[i] != '\0'; i++)
 	{
 		_putchar(filename[i]);
 	}

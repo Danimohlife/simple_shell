@@ -14,7 +14,9 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg)
 
 	funcall = run_c(ab);
 	if (_strncmp(funcall[0], "exit", 4) == 0)
+	{
 		sk_out_file(funcall, ab, ptr);
+	}
 	else if (rn_sys_fl(funcall) == 0)
 	{
 		i = sys_fl(funcall, i);
@@ -35,8 +37,6 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg)
  */
 int sys_fl(char **com, int num)
 {
-	int nm;
-
 	stru_t syst[] = {
 		{"cd", dir_recu},
 		{"env", curr_en},
@@ -45,7 +45,8 @@ int sys_fl(char **com, int num)
 		{"history", tm_func},
 		{NULL, NULL}
 	};
-	nm = 0;
+	int nm = 0;
+
 	while ((syst + nm)->comm)
 	{
 		if (_strcmp(com[0], (syst + nm)->comm) == 0)
@@ -71,7 +72,9 @@ int run_dr(char **cd, char *filename, int i, char **arrfl)
 	pid_t pid;
 
 	if (*cd == NULL)
+	{
 		return (-1);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
@@ -108,7 +111,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *result;
 
 	if (new_size == old_size)
+	{
 		return (ptr);
+	}
 	if (new_size == 0 && ptr)
 	{
 		free(ptr);
