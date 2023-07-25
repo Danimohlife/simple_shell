@@ -1,23 +1,20 @@
 #include "main.h"
 /**
  * _strncmp - compare str.
- * @file1: first to string to cmp.
- * @file2: sencond to com wit
- * @num: Num of char
+ * @s1: first to string to cmp.
+ * @s2: sencond to com wit
+ * @n: Num of char
  * Return: 0 / 1
  */
-int _strncmp(const char *file1, const char *file2, size_t num)
+int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
 
-	if (file1 == NULL)
-	{
+	if (s1 == NULL)
 		return (-1);
-	}
-
-	for (i = 0; i < num && file2[i]; i++)
+	for (i = 0; i < n && s2[i]; i++)
 	{
-		if (file1[i] != file2[i])
+		if (s1[i] != s2[i])
 		{
 			return (1);
 		}
@@ -32,23 +29,22 @@ int _strncmp(const char *file1, const char *file2, size_t num)
  */
 char *_strdup(char *str)
 {
-	size_t lp, strl;
-	char *ptrm;
+	size_t len, i;
+	char *st;
 
-	strl = _strlen(str);
-	ptrm = malloc(sizeof(char) * (strl + 1));
-
-	if (!ptrm)
+	len = _strlen(str);
+	st = malloc(sizeof(char) * (len + 1));
+	if (!str2)
 	{
 		return (NULL);
 	}
 
-	for (lp = 0; lp <= strl; lp++)
+	for (i = 0; i <= len; i++)
 	{
-		ptrm[lp] = str[lp];
+		st[i] = str[i];
 	}
 
-	return (ptrm);
+	return (st);
 }
 /**
  * _isalpha - Checking if it is Alphabtic
@@ -57,15 +53,16 @@ char *_strdup(char *str)
  */
 int _isalpha(int c)
 {
-	if (((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+if (((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
+{
+return (1);
 }
+else
+{
+return (0);
+}
+}
+
 /**
  *  array_rev - Reverse Array
  * @arr:Array To Reverse

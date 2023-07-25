@@ -84,25 +84,19 @@ char *_new_ln(void)
  */
 void *_calloc(unsigned int size)
 {
-	unsigned int lp;
-	char *ptr;
+	char *a;
+	unsigned int i;
 
 	if (size == 0)
+	return (NULL);
+	a = malloc(size);
+	if (a == NULL)
+	return (NULL);
+	for (i = 0; i < size; i++)
 	{
-		return (NULL);
+		a[i] = '\0';
 	}
-
-	ptr = malloc(size);
-
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-	for (lp = 0; lp < size; lp++)
-	{
-		ptr[lp] = '\0';
-	}
-	return (ptr);
+	return (a);
 }
 /**
  * run_c - Parse Line Of Input

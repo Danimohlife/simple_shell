@@ -1,89 +1,85 @@
 #include "main.h"
 /**
  * _strncpy - like strncpy of stdio lib func
- * @destfile: destination file
- * @srcfile: Source file
- * @m: num of char
+ * @dest: destination file
+ * @src: Source file
+ * @n: num of char
  * Return: destfile
  */
-char *_strncpy(char *destfile, char *srcfile, int m)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int lp = 0;
+int i;
 
-	while (lp < m && *(srcfile + 1))
+i = 0;
+	while (i < n && *(src + i))
 	{
-		*(destfile + lp) = *(srcfile + lp);
-		lp++;
+	*(dest + i) = *(src + i);
+	i++;
 	}
-
-	while (lp < m)
+	while (i < n)
 	{
-		*(destfile + lp) = '\0';
-		lp++;
+	*(dest + i) = '\0';
+	i++;
 	}
-
-	return (destfile);
+	return (dest);
 }
 /**
  * _atoi - to concert str of num or char to num
- * @str: str of char to convert
+ * @s: str of char to convert
  * Return: convert
  */
-int _atoi(char *str)
+int _atoi(char *s)
 {
-	int b, a, c, d = 1;
+int i, j, n, x;
 
-	a = c = 0;
-
-	while ((str[a] < '0' || str[a] > '9') && (str[a] != '\0'))
+	i = n = 0;
+	x = 1;
+	while ((s[i] < '0' || s[i] > '9') && (s[i] != '\0'))
 	{
-		if (str[a] == '-')
-		{
-			d *= -1;
-		}
-		a++;
+		if (s[i] == '-')
+			x *= -1;
+		i++;
 	}
-	b = a;
-	while ((str[b] >= '0') && (str[b] <= '9'))
+	j = i;
+	while ((s[j] >= '0') && (s[j] <= '9'))
 	{
-		c = (c * 10) + d * ((str[b]) - '0');
-		b++;
+		n = (n * 10) + x * ((s[j]) - '0');
+		j++;
 	}
-	return (c);
+	return (n);
 }
-
 /**
  * _strcpy - Source To Destination file
- * @destfile: Destination file
- * @srcfile: Source file
+ * @dest: Destination file
+ * @src: Source file
  * Return: destfile
  */
-char *_strcpy(char *destfile, char *srcfile)
+char *_strcpy(char *dest, char *src)
 {
-	int lp;
+int i;
 
-	lp = 0;
-	while (srcfile[lp])
+i = 0;
+	while (src[i])
 	{
-		destfile[lp] = srcfile[lp];
-		lp++;
+		dest[i] = src[i];
+		i++;
 	}
-	destfile[lp] = '\0';
-	return (destfile);
+dest[i] = '\0';
+return (dest);
 }
 /**
  * intlen - str len
- * @n: amnt int
+ * @num: amnt int
  * Return: i
  */
-int intlen(int n)
+int intlen(int num)
 {
-	int i = 0;
+	int len = 0;
 
-	while (n != 0)
+	while (num != 0)
 	{
-		i++;
-		n /= 10;
+		len++;
+		num /= 10;
 	}
-	return (i);
+	return (len);
 }
