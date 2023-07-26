@@ -6,44 +6,46 @@
  */
 char *_envro(char *dm)
 {
-	size_t a, b;
+	size_t ln, l;
 	char *val;
-	int lp, lps, lop;
+	int lp, lop, lop2;
 
-	a = _strlen(dm);
+	ln = _strlen(dm);
 	for (lp = 0 ; environ[lp]; lp++)
 	{
-		if (_strncmp(dm, environ[lp], a) == 0)
+		if (_strncmp(dm, environ[lp], ln) == 0)
 		{
-			b = _strlen(environ[lp]) - a;
-			val = malloc(sizeof(char) * b);
+			l = _strlen(environ[lp]) - ln;
+			val = malloc(sizeof(char) * l);
 			if (!val)
 			{
 				free(val);
 				perror("unable to alloc");
 				return (NULL);
 			}
-			lop = 0;
-			for (lps = a + 1; environ[lp][lps]; lps++, lop++)
+
+			lop2 = 0;
+			for (lop = ln + 1; environ[lp][lop]; lop++, lop2++)
 			{
-				val[lop] = environ[lp][lps];
+				val[lop2] = environ[lp][lop];
 			}
-			val[lop] = '\0';
+			val[lop2] = '\0';
+
 			return (val);
 		}
 	}
+
 	return (NULL);
 }
 /**
  * _new_ln - \n
  * Return: Input
  */
-char *_new_ln(void)
+char *_new_ln()
 {
-	int num = BUFFERSIZE;
-	int nl, frd;
-	char s = 0;
-	char *mal = malloc(num);
+int i, size = BUFFERSIZE, rd;
+char c = 0;
+char *mal = malloc(size);
 
 	if (mal == NULL)
 	{
@@ -51,32 +53,35 @@ char *_new_ln(void)
 		return (NULL);
 	}
 
-	for (nl = 0; s != EOF && s != '\n'; nl++)
+	for (i = 0; c != EOF && c != '\n'; i++)
 	{
 		fflush(stdin);
-		frd = read(STDIN_FILENO, &s, 1);
-		if (frd == 0)
+		rd = read(STDIN_FILENO, &c, 1);
+		if (rd == 0)
 		{
 			free(mal);
 			exit(EXIT_SUCCESS);
 		}
-		mal[nl] = s;
+		mal[i] = c;
 		if (mal[0] == '\n')
 		{
 			free(mal);
 			return ("\0");
 		}
-		if (nl >= num)
+		if (i >= size)
 		{
-			mal = _realloc(mal, num, num + 1);
+			mall = _realloc(mal, size, size + 1);
 			if (mal == NULL)
+			{
 				return (NULL);
+			}
 		}
 	}
-	mal[nl] = '\0';
+	mal[i] = '\0';
 	tags(mal);
 	return (mal);
 }
+
 /**
  * _calloc - memories allocation 2
  * @size: total allocation
@@ -105,26 +110,27 @@ void *_calloc(unsigned int size)
  */
 char **run_c(char *inp)
 {
-	char **memptr;
-	char *strf;
-	int lp, size = BUFFERSIZE;
+	char **tokenis;
+	char *tok;
+	int l, size = BUFFERSIZE;
 
 	if (inp == NULL)
 		return (NULL);
-
-	memptr = malloc(sizeof(char *) * size);
-	if (memptr)
+	tokenis = malloc(sizeof(char *) * size);
+	if (!tokenis)
 	{
 		perror("hsh");
 		return (NULL);
 	}
 
-	strf = _strtok(inp, "\n ");
-	for (lp = 0; strf; lp++)
+	tok = _strtok(inp, "\n ");
+	for (l = 0; tok; l++)
 	{
-		memptr[lp] = strf;
-		strf = _strtok(NULL, "\n ");
+		tokenis[l] = tok;
+		tok = _strtok(NULL, "\n ");
 	}
-	memptr[lp] = NULL;
-	return (memptr);
+	tokenis[l] = NULL;
+
+	return (tokenis);
 }
+
