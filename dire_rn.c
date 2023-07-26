@@ -9,7 +9,7 @@ void cal_num(unsigned int n)
 	unsigned int x = n;
 
 	if ((x / 10) > 0)
-		print_number(x / 10);
+		cal_num(x / 10);
 
 	_putchar(x % 10 + '0');
 }
@@ -23,7 +23,7 @@ void cal_num(unsigned int n)
 int dir_recu(char **str, __attribute__((unused))int num)
 {
 	int value = -1;
-	char str[PATH_MAX];
+	char cwd[PATH_MAX];
 
 	if (str[1] == NULL)
 		value = chdir(getenv("HOME"));

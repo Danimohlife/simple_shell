@@ -10,8 +10,8 @@ char *crea_pat(char *ccs, char *access)
 	char *command;
 	size_t ln;
 
-	len = _strlen(access) + _strlen(ccs) + 2;
-	commmand = malloc(sizeof(char) * ln);
+	ln = _strlen(access) + _strlen(ccs) + 2;
+	command = malloc(sizeof(char) * ln);
 	if (command == NULL)
 	{
 		return (NULL);
@@ -19,9 +19,9 @@ char *crea_pat(char *ccs, char *access)
 
 	memset(command, 0, ln);
 
-	cmd = _strcat(command, access);
-	cmd = _strcat(command, "/");
-	cmd = _strcat(command, ccs);
+	command = _strcat(command, access);
+	command = _strcat(command, "/");
+	command = _strcat(command, ccs);
 
 	return (command);
 }
@@ -49,11 +49,11 @@ void tags(char *b)
 {
 	int l;
 
-		for (l = 0; b[] != '\0'; l++)
+		for (l = 0; b[l] != '\0'; l++)
 		{
 			if (b[l] == '#')
 			{
-			[l] = '\0';
+			b[l] = '\0';
 			break;
 			}
 	}

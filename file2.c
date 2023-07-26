@@ -68,7 +68,7 @@ char *_strtok(char *str, const char *fil)
 	unsigned int lp;
 
 	if (str != NULL)
-		nt = str;
+		c = str;
 	s = c;
 	if (s == NULL)
 		return (NULL);
@@ -90,7 +90,7 @@ char *_strtok(char *str, const char *fil)
 			break;
 	}
 	if (c[lp] == '\0')
-		nt = NULL;
+		c = NULL;
 	else
 	{
 		c[lp] = '\0';

@@ -20,7 +20,7 @@ void rnthru_fl(char *file, char **env)
 	while ((getline(&str, &lp, fp)) != -1)
 	{
 		n++;
-		treat_file(str, n, fp, env);
+		oprate_fl(str, n, fp, env);
 
 	}
 	if (str)
@@ -86,12 +86,12 @@ void  out_sys(char **cm, char *input, char **arrfl, int i)
 	if (cm[1] == NULL)
 	{
 		free(input);
-		free(cd);
+		free(cm);
 		exit(EXIT_SUCCESS);
 	}
 	while (cm[1][lp])
 	{
-		if (_isalpha(c[1][lp++]) != 0)
+		if (_isalpha(cm[1][lp++]) != 0)
 		{
 			_print_er(arrfl, i, cm);
 			break;

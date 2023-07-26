@@ -81,7 +81,7 @@ int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i)
 	{
 		lp++;
 		c = _itoa(lp);
-		PUTCHAR(er);
+		PUTCHAR(c);
 		free(c);
 		PUTCHAR(" ");
 		PUTCHAR(strl);
@@ -94,21 +94,22 @@ int tm_func(__attribute__((unused))char **str, __attribute__((unused))int i)
 }
 /**
  * _print_er - Print Error
- * @ac:Program Name
- * @i:Error Count
+ * @count:Program Name
+ * @num:Error Count
  * @cd:Command
  * Return: Void function
  */
-void _print_er(char *cd, int i, char **ac)
+void _print_er(char **count, int num, char **cd)
 {
-	char *c;
+	char *c = _itoa(num);
 
-	PUTCHAR(ac[0]);
+	PUTCHAR(count[0]);
 	PUTCHAR(": ");
-	c = _itoa(i);
-	PUTCHAR(er);
-	free(er);
+	PUTCHAR(c);
 	PUTCHAR(": ");
-	PUTCHAR(cd);
-	PUTCHAR(": not found\n");
+	PUTCHAR(cd[0]);
+	PUTCHAR(": Illegal number: ");
+	PUTCHAR(cd[1]);
+	PUTCHAR("\n");
+	free(c);
 }

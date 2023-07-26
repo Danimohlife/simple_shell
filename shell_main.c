@@ -50,26 +50,24 @@ int main(__attribute__((unused)) int argc, char **argv)
  */
 int rn_sys_fl(char **shel)
 {
-	stru_t arr[] = {
+	stru_t syt[] = {
 		{"cd", NULL},
 		{"help", NULL},
 		{"echo", NULL},
 		{"history", NULL},
 		{NULL, NULL}
 	};
-
-	int lp = 0;
-
-	if (*shel == NULL)
+	int l = 0;
+		if (*shel == NULL)
 	{
 		return (-1);
 	}
 
-	while ((arr + lp)->comm)
+	while ((syt + l)->comm)
 	{
-		if (_strcmp(shel[0], (arr + lp)->comm) == 0)
+		if (_strcmp(shel[0], (syt + l)->comm) == 0)
 			return (0);
-		lp++;
+		l++;
 	}
 	return (-1);
 }

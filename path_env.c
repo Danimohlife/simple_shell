@@ -70,7 +70,7 @@ char *mal = malloc(size);
 		}
 		if (i >= size)
 		{
-			mall = _realloc(mal, size, size + 1);
+			mal = _realloc(mal, size, size + 1);
 			if (mal == NULL)
 			{
 				return (NULL);

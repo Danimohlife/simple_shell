@@ -37,7 +37,7 @@ void oprate_fl(char *ab, int ac, FILE *ptr, char **arg)
  */
 int sys_fl(char **com, int num)
 {
-	stru_t syst[] = {
+	 stru_t cli[] = {
 		{"cd", dir_recu},
 		{"env", curr_en},
 		{"help", help_fnc},
@@ -45,19 +45,18 @@ int sys_fl(char **com, int num)
 		{"history", tm_func},
 		{NULL, NULL}
 	};
-	int nm = 0;
+	int lp = 0;
 
-	while ((syst + nm)->comm)
+	while ((cli + lp)->comm)
 	{
-		if (_strcmp(com[0], (syst + nm)->comm) == 0)
+		if (_strcmp(com[0], (cli + lp)->comm) == 0)
 		{
-			return ((syst + nm)->fptr(com, num));
+			return ((cli + lp)->fptr(com, num));
 		}
-		nm++;
+		lp++;
 	}
 	return (-1);
 }
-
 /**
  * run_dr - sys files
  * @cd: intake

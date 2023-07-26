@@ -13,7 +13,7 @@ size_t lp;
 	for (lp = 0; environ[lp] != NULL; lp++)
 	{
 		n = _strlen(environ[lp]);
-		write(1, environ[i], n);
+		write(1, environ[lp], n);
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	return (0);
@@ -42,8 +42,8 @@ int bult_in(char **str, int num)
 	}
 	else if (_strncmp(str[1], "$PATH", 5) == 0)
 	{
-		p = _getenv("PATH");
-		PUTCHAR(path);
+		p = _envro("PATH");
+		PUTCHAR(p);
 		PUTCHAR("\n");
 		free(p);
 
