@@ -10,9 +10,8 @@ char *crea_pat(char *ccs, char *access)
 	char *command;
 	size_t ln;
 
-	ln = _strlen(access) + _strlen(ccs) + 2;
-	command = malloc(sizeof(char) * ln);
-
+	len = _strlen(access) + _strlen(ccs) + 2;
+	commmand = malloc(sizeof(char) * ln);
 	if (command == NULL)
 	{
 		return (NULL);
@@ -20,12 +19,13 @@ char *crea_pat(char *ccs, char *access)
 
 	memset(command, 0, ln);
 
-	command = _strcat(command, access);
-	command = _strcat(command, "/");
-	command = _strcat(command, ccs);
+	cmd = _strcat(command, access);
+	cmd = _strcat(command, "/");
+	cmd = _strcat(command, ccs);
 
 	return (command);
 }
+
 /**
  * env_f - realese environ
  * @en: var
@@ -47,15 +47,15 @@ void env_f(char **en)
  */
 void tags(char *b)
 {
-	int num;
+	int l;
 
-	for (num = 0; b[num] != '\0'; num++)
-	{
-		if (b[num] == '#')
+		for (l = 0; b[] != '\0'; l++)
 		{
-			b[num] = '\0';
+			if (b[l] == '#')
+			{
+			[l] = '\0';
 			break;
-		}
+			}
 	}
 }
 /**
